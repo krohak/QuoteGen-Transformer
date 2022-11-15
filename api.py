@@ -16,7 +16,7 @@ def handler(event, _context):
     event = _from_string(event)
     event = _from_string(event.get("body", event))
     text = event.get("text")
-    if text is None or text is not isinstance(str):
+    if text is None or not isinstance(text, str):
         return {
             "statusCode": 400,
             "message": "text not found in event",
